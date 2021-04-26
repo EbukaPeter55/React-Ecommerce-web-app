@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux'
 import { auth } from '../../firebase/firebase.utils';
 
 // Using the React library special "ReactComponent as Logo to import SVG image."
@@ -29,6 +30,12 @@ const Header = ({ currentUser }) => (
       }
     </div>
   </div>
-);
+  );
+  
+  // state here represents the root reducer
+const mapStateToProps = state => ({
+  currentUser: state.user.currentUser
+}); 
 
-export default Header;
+// connect helps to accept 2 functions, one of which is mapStateToProps. it connnects a react component to our redux store. 
+  export default connect(mapStateToProps)(Header); //We now have access to the current user
