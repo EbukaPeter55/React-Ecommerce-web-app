@@ -20,14 +20,15 @@ const Header = ({ currentUser }) => (
       <Link className='option' to='/shop'>
         CONTACT
       </Link>
-      {
-        currentUser ?
-        <div className="option" onClick={()=> auth.signOut()}>SIGN OUT</div>
-        :
-        <Link className="option" to="/signin">
-        SIGN IN
+      {currentUser ? (
+        <div className='option' onClick={() => auth.signOut()}>
+          SIGN OUT
+        </div>
+      ) : (
+        <Link className='option' to='/signin'>
+          SIGN IN
         </Link>
-      }
+      )}
     </div>
   </div>
   );
@@ -38,4 +39,4 @@ const mapStateToProps = state => ({
 }); 
 
 // connect helps to accept 2 functions, one of which is mapStateToProps. it connnects a react component to our redux store. 
-  export default connect(mapStateToProps)(Header); //We now have access to the current user
+export default connect(mapStateToProps)(Header);//We now have access to the current user
