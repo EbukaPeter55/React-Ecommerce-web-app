@@ -13,13 +13,13 @@ export const selectCollections = createSelector (
 // A selector to converts an object into an array
 export const selectCollectionsForPreview = createSelector(
     [selectCollections],
-    collections => Object.keys(collections).map(key => collections[key])
+    collections => 
+    collections ? Object.keys(collections).map(key => collections[key]) : []
   );
 
 // Find collection.id matching the url parameter of collection id map
 export const selectCollection = collectionURLParam => 
 createSelector (
 [selectCollections],
-collections => 
-collections => collections[collectionURLParam]
+collections => (collections ? collections[collectionURLParam] : null )
 );
