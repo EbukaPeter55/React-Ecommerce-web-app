@@ -23,3 +23,14 @@ createSelector (
 [selectCollections],
 collections => (collections ? collections[collectionURLParam] : null )
 );
+
+export const selectIsCollectionFetching = createSelector(
+  [selectShop],
+  shop => shop.isFetching
+);
+
+export const selectIsCollectionsLoaded = createSelector (
+  [selectShop],
+  // If collections is loaded, get true otherwise false
+  shop => !!shop.collections
+)
