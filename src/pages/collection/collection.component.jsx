@@ -7,7 +7,18 @@ import { selectCollection } from '../../redux/shop/shop.selectors';
 
 import './collection.styles.scss';
 
+
 const CollectionPage = ({ collection }) => {
+  // useEffect(()=> {
+  //   console.log("I am subscribing");
+  //   const unsubscribeFromCollections = firestore.collection('collections').onSnapshot(snapshot => console.log(snapshot));
+    
+  //   Cleanup function that does same thing the componentWillUnmount does
+  //   return () =>{
+  //     console.log("I am unsubscribing");
+  //     unsubscribeFromCollections();
+  //   };
+  // }, []);
   const { title, items } = collection;
   console.log({title});
   return (
